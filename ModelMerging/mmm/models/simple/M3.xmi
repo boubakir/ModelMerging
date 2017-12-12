@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:umlMetaModel.ecore="http://spl/umlMetaModel.ecore/">
+    <classes name="Student">
+	<attributes name="name"/>
+	<attributes name="surname"/>
+	<attributes name="email"/>
+    </classes>
+</xmi:XMI>

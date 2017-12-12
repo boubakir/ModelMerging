@@ -1,0 +1,12 @@
+Class 1
+ClassName 0.4
+ClassAttribute 0.3
+ClassOperation 0.3
+AttributeName 1
+AttributeType 0
+OperationName 1
+OperationType 0
+Parameter 0
+ParameterName 0
+ParameterType 0
+	

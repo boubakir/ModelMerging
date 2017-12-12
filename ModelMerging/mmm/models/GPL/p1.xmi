@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ASCII"?>
+<umlMetaModel.ecore:umlPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:umlMetaModel.ecore="http://spl/umlMetaModel.ecore/" name="GPL">
+  <classes name="Vertex">
+    <attributes name="neighbors"/>
+    <attributes name="name"/>
+    <attributes name="VertexNumber"/>
+    <attributes name="visited"/>
+    <operations name="getName()"/>
+    <operations name="Vertex()"/>
+    <operations name="VertexConstructor__wrappee__Number()"/>
+    <operations name="VertexConstructor()"/>
+    <operations name="assignName(String)"/>
+    <operations name="addNeighbor(Neighbor)"/>
+    <operations name="getNeighbors()"/>
+    <operations name="getEdges()"/>
+    <operations name="display__wrappee__TestProg()"/>
+    <operations name="display__wrappee__Number()"/>
+    <operations name="display()"/>
+    <operations name="init_vertex(WorkSpace)"/>
+    <operations name="nodeSearch(WorkSpace)"/>
+  </classes>
+  <classes name="Main">
+    <operations name="main(java.lang.String[])"/>
+  </classes>
+  <classes name="GlobalVarsWrapper">
+    <attributes name="Queue"/>
+  </classes>
+  <classes name="Graph">
+    <attributes name="vertices"/>
+    <attributes name="edges"/>
+    <attributes name="isDirected"/>
+    <operations name="Graph()"/>
+    <operations name="run__wrappee__TestProg(Vertex)"/>
+    <operations name="run(Vertex)"/>
+    <operations name="sortEdges(Comparator)"/>
+    <operations name="sortVertices(Comparator)"/>
+    <operations name="addEdge(Vertex,Vertex)"/>
+    <operations name="addVertex(Vertex)"/>
+    <operations name="findsVertex(String)"/>
+    <operations name="getVertices()"/>
+    <operations name="getEdges()"/>
+    <operations name="display()"/>
+    <operations name="NumberVertices()"/>
+    <operations name="GraphSearch(WorkSpace)"/>
+  </classes>
+  <classes name="Edge">
+    <attributes name="start"/>
+    <operations name="EdgeConstructor(Vertex,Vertex)"/>
+    <operations name="adjustAdorns(EdgeIfc)"/>
+    <operations name="setWeight(int)"/>
+    <operations name="getWeight()"/>
+    <operations name="getOtherVertex(Vertex)"/>
+    <operations name="getStart()"/>
+    <operations name="getEnd()"/>
+    <operations name="display()"/>
+    <operations name="Edge()"/>
+  </classes>
+  <classes name="WorkSpace">
+    <operations name="init_vertex(Vertex)"/>
+    <operations name="preVisitAction(Vertex)"/>
+    <operations name="postVisitAction(Vertex)"/>
+    <operations name="nextRegionAction(Vertex)"/>
+    <operations name="checkNeighborAction(Vertex,Vertex)"/>
+  </classes>
+  <classes name="VertexIter">
+    <operations name="hasNext()"/>
+    <operations name="next()"/>
+  </classes>
+  <classes name="NumberWorkSpace">
+    <attributes name="vertexCounter"/>
+    <operations name="NumberWorkSpace()"/>
+    <operations name="preVisitAction(Vertex)"/>
+  </classes>
+  <classes name="Neighbor">
+    <attributes name="end"/>
+    <attributes name="edge"/>
+    <operations name="Neighbor()"/>
+    <operations name="Neighbor(Vertex,Edge)"/>
+  </classes>
+  <classes name="EdgeIter">
+    <operations name="hasNext()"/>
+    <operations name="next()"/>
+  </classes>
+</umlMetaModel.ecore:umlPackage>

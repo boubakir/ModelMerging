@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:umlMetaModel.ecore="http://spl/umlMetaModel.ecore/">
+  <umlMetaModel.ecore:umlPackage name="(default package)">
+    <classes name="Suite">
+      <methods name="testBaseModel" returnType="void"/>
+    </classes>
+    <classes name="GolView">
+      <attributes name="model" type="ModelObservable"/>
+      <attributes name="PPanel" type="PlaygroundPanel"/>
+      <attributes name="BTBar" type="ButtonsToolBar"/>
+      <methods name="GolView" returnType="">
+        <parameters name="model" type="ModelObservable"/>
+      </methods>
+      <methods name="update" returnType="void"/>
+    </classes>
+    <classes name="ButtonsToolBar">
+      <attributes name="model" type="ModelObservable"/>
+      <attributes name="sched" type="GenerationScheduler"/>
+      <attributes name="play" type="JButton"/>
+      <attributes name="pause" type="JButton"/>
+      <methods name="ButtonsToolBar" returnType="">
+        <parameters name="mod" type="ModelObservable"/>
+        <parameters name="sched" type="GenerationScheduler"/>
+      </methods>
+      <methods name="addGenerationButton" returnType="void"/>
+      <methods name="update" returnType="void"/>
+      <methods name="makeNavigationButton" returnType="JButton">
+        <parameters name="imageName" type="String"/>
+        <parameters name="actionCommand" type="String"/>
+        <parameters name="toolTipText" type="String"/>
+        <parameters name="altText" type="String"/>
+        <parameters name="act" type="ActionListener"/>
+      </methods>
+    </classes>
+    <classes name="PlaygroundMouseAdapter">
+      <attributes name="playgroundPanel" type="PlaygroundPanel"/>
+      <attributes name="sched" type="GenerationScheduler"/>
+      <methods name="PlaygroundMouseAdapter" returnType="">
+        <parameters name="playgroundPanel" type="PlaygroundPanel"/>
+        <parameters name="sched" type="GenerationScheduler"/>
+      </methods>
+      <methods name="mousePressed" returnType="void">
+        <parameters name="e" type="MouseEvent"/>
+      </methods>
+      <methods name="hook" returnType="boolean">
+        <parameters name="e" type="MouseEvent"/>
+        <parameters name="x" type="int"/>
+        <parameters name="y" type="int"/>
+      </methods>
+    </classes>
+    <classes name="RuleSet">
+      <attributes name="causesBirth" type="boolean[]"/>
+      <attributes name="causesDeath" type="boolean[]"/>
+      <methods name="RuleSet" returnType="">
+        <parameters name="causesBirth" type="boolean[]"/>
+        <parameters name="causesDeath" type="boolean[]"/>
+      </methods>
+      <methods name="apply" returnType="int">
+        <parameters name="lf" type="LifeForm"/>
+      </methods>
+      <methods name="equals" returnType="boolean">
+        <parameters name="o" type="Object"/>
+      </methods>
+    </classes>
+    <classes name="LifeForm">
+      <attributes name="type" type="int"/>
+      <attributes name="neighbourhood" type="int[]"/>
+      <attributes name="x" type="int"/>
+      <attributes name="y" type="int"/>
+      <methods name="LifeForm" returnType="">
+        <parameters name="x" type="int"/>
+        <parameters name="y" type="int"/>
+        <parameters name="type" type="int"/>
+        <parameters name="neighbourhood" type="int[]"/>
+      </methods>
+      <methods name="getType" returnType="int"/>
+      <methods name="getNeighbourhood" returnType="int[]"/>
+      <methods name="getX" returnType="int"/>
+      <methods name="getY" returnType="int"/>
+    </classes>
+    <classes name="ModelObservable">
+      <attributes name="observers" type="List"/>
+      <methods name="attach" returnType="void">
+        <parameters name="o" type="ModelObserver"/>
+      </methods>
+      <methods name="detach" returnType="void">
+        <parameters name="o" type="ModelObserver"/>
+      </methods>
+      <methods name="notifyObservers" returnType="void"/>
+      <methods name="nextGeneration" returnType="void"/>
+      <methods name="getPlayground" returnType="int[][]"/>
+      <methods name="setLifeform" returnType="void">
+        <parameters name="coord" type="int"/>
+        <parameters name="coord2" type="int"/>
+        <parameters name="i" type="int"/>
+      </methods>
+      <methods name="setPlayground" returnType="void">
+        <parameters name="pg" type="int[][]"/>
+      </methods>
+      <methods name="generate" returnType="void"/>
+      <methods name="setGenerator" returnType="void">
+        <parameters name="generator" type="GeneratorStrategy"/>
+      </methods>
+      <methods name="getGeneratorStrategies" returnType="List"/>
+      <methods name="undo" returnType="void"/>
+      <methods name="undoAvailable" returnType="boolean"/>
+      <methods name="redo" returnType="void"/>
+      <methods name="redoAvailable" returnType="boolean"/>
+    </classes>
+    <classes name="GenerationScheduler">
+      <attributes name="active" type="boolean"/>
+      <attributes name="timeRate" type="int"/>
+      <attributes name="myTimer" type="Timer"/>
+      <attributes name="model" type="ModelObservable"/>
+      <methods name="GenerationScheduler" returnType="">
+        <parameters name="model" type="ModelObservable"/>
+      </methods>
+      <methods name="start" returnType="void"/>
+      <methods name="stop" returnType="void"/>
+      <methods name="singleStep" returnType="void"/>
+    </classes>
+    <classes name="PlaygroundPanel">
+      <attributes name="playground" type="int[][]"/>
+      <attributes name="myColors" type="PlaygroundColors"/>
+      <attributes name="model" type="ModelObservable"/>
+      <attributes name="xBoxWidth" type="int"/>
+      <attributes name="yBoxWidth" type="int"/>
+      <attributes name="xOffset" type="int"/>
+      <attributes name="yOffset" type="int"/>
+      <methods name="PlaygroundPanel" returnType="">
+        <parameters name="model" type="ModelObservable"/>
+        <parameters name="sched" type="GenerationScheduler"/>
+      </methods>
+      <methods name="display" returnType="void">
+        <parameters name="playground" type="int[][]"/>
+      </methods>
+      <methods name="paint" returnType="void">
+        <parameters name="g" type="Graphics"/>
+      </methods>
+      <methods name="getXCoordinate" returnType="int">
+        <parameters name="pixel" type="int"/>
+      </methods>
+      <methods name="getYCoordinate" returnType="int">
+        <parameters name="pixel" type="int"/>
+      </methods>
+      <methods name="getXOffset" returnType="int"/>
+      <methods name="getYOffset" returnType="int"/>
+      <methods name="getXBoxWidth" returnType="int"/>
+      <methods name="getYBoxWidth" returnType="int"/>
+      <methods name="getModel" returnType="ModelObservable"/>
+      <methods name="setFieldOnPlayground" returnType="void">
+        <parameters name="x" type="int"/>
+        <parameters name="y" type="int"/>
+        <parameters name="value" type="int"/>
+      </methods>
+      <methods name="getFieldOnPlayground" returnType="int">
+        <parameters name="x" type="int"/>
+        <parameters name="y" type="int"/>
+      </methods>
+    </classes>
+    <classes name="Main">
+      <methods name="main" returnType="void">
+        <parameters name="args" type="java.lang.String[]"/>
+      </methods>
+    </classes>
+    <classes name="Playground">
+      <attributes name="field" type="int[][]"/>
+      <attributes name="xSize" type="int"/>
+      <attributes name="ySize" type="int"/>
+      <attributes name="generation" type="int"/>
+      <methods name="Playground" returnType="">
+        <parameters name="xSize" type="int"/>
+        <parameters name="ySize" type="int"/>
+        <parameters name="generation" type="int"/>
+      </methods>
+      <methods name="set" returnType="void">
+        <parameters name="x" type="int"/>
+        <parameters name="y" type="int"/>
+        <parameters name="value" type="int"/>
+      </methods>
+      <methods name="getXSize" returnType="int"/>
+      <methods name="getYSize" returnType="int"/>
+      <methods name="getGeneration" returnType="int"/>
+      <methods name="getField" returnType="int[][]"/>
+      <methods name="getNeighbourhood" returnType="int[]">
+        <parameters name="x" type="int"/>
+        <parameters name="y" type="int"/>
+      </methods>
+      <methods name="iterator" returnType="Iterator"/>
+      <methods name="toString" returnType="String"/>
+      <methods name="equals" returnType="boolean">
+        <parameters name="o" type="Object"/>
+      </methods>
+      <methods name="clone" returnType="Playground"/>
+    </classes>
+    <classes name="GODLModel">
+      <attributes name="rules" type="RuleSet"/>
+      <attributes name="playground" type="Playground"/>
+      <attributes name="generators" type="List"/>
+      <attributes name="generator" type="GeneratorStrategy"/>
+      <attributes name="undoList" type="LinkedList"/>
+      <attributes name="redoList" type="LinkedList"/>
+      <methods name="GODLModel" returnType="">
+        <parameters name="xSize" type="int"/>
+        <parameters name="ySize" type="int"/>
+        <parameters name="rules" type="RuleSet"/>
+      </methods>
+      <methods name="setLifeform__wrappee__Test" returnType="void">
+        <parameters name="x" type="int"/>
+        <parameters name="y" type="int"/>
+        <parameters name="value" type="int"/>
+      </methods>
+      <methods name="setLifeform" returnType="void">
+        <parameters name="x" type="int"/>
+        <parameters name="y" type="int"/>
+        <parameters name="value" type="int"/>
+      </methods>
+      <methods name="setPlayground__wrappee__Test" returnType="void">
+        <parameters name="pg" type="int[][]"/>
+      </methods>
+      <methods name="setPlayground" returnType="void">
+        <parameters name="pg" type="int[][]"/>
+      </methods>
+      <methods name="nextGeneration__wrappee__Test" returnType="void"/>
+      <methods name="nextGeneration" returnType="void"/>
+      <methods name="getPlayground" returnType="int[][]"/>
+      <methods name="setGenerator" returnType="void">
+        <parameters name="generator" type="GeneratorStrategy"/>
+      </methods>
+      <methods name="getGeneratorStrategies" returnType="List"/>
+      <methods name="generate" returnType="void"/>
+      <methods name="toString" returnType="String"/>
+      <methods name="equals" returnType="boolean">
+        <parameters name="o" type="Object"/>
+      </methods>
+      <methods name="undo" returnType="void"/>
+      <methods name="redo" returnType="void"/>
+      <methods name="undoAvailable" returnType="boolean"/>
+      <methods name="redoAvailable" returnType="boolean"/>
+    </classes>
+    <classes name="LifeFormIterator">
+      <attributes name="playground" type="Playground"/>
+      <attributes name="currentX" type="int"/>
+      <attributes name="currentY" type="int"/>
+      <methods name="LifeFormIterator" returnType="">
+        <parameters name="playground" type="Playground"/>
+      </methods>
+      <methods name="hasNext" returnType="boolean"/>
+      <methods name="next" returnType="LifeForm"/>
+      <methods name="remove" returnType="void"/>
+    </classes>
+    <classes name="PlaygroundIO">
+      <attributes name="FILE_HEADER" type="String"/>
+      <attributes name="WIDTH_TOKEN" type="String"/>
+      <attributes name="HEIGHT_TOKEN" type="String"/>
+      <attributes name="DATA_BEGIN_TOKEN" type="String"/>
+      <attributes name="DATA_END_TOKEN" type="String"/>
+      <methods name="isSquare" returnType="boolean">
+        <parameters name="pg" type="int[][]"/>
+      </methods>
+      <methods name="saveToFile" returnType="void">
+        <parameters name="pg" type="int[][]"/>
+        <parameters name="dest" type="File"/>
+      </methods>
+      <methods name="loadFromFile" returnType="int[][]">
+        <parameters name="source" type="File"/>
+      </methods>
+    </classes>
+  </umlMetaModel.ecore:umlPackage>
+  <umlMetaModel.ecore:umlPackage name="generator">
+    <classes name="ClearGeneratorStrategy">
+      <methods name="toString" returnType="String"/>
+      <methods name="getNext" returnType="int">
+        <parameters name="x" type="int"/>
+        <parameters name="y" type="int"/>
+      </methods>
+      <methods name="ClearGeneratorStrategy" returnType=""/>
+    </classes>
+    <classes name="RandomGeneratorStrategy">
+      <methods name="getNext" returnType="int">
+        <parameters name="x" type="int"/>
+        <parameters name="y" type="int"/>
+      </methods>
+      <methods name="toString" returnType="String"/>
+      <methods name="RandomGeneratorStrategy" returnType=""/>
+    </classes>
+  </umlMetaModel.ecore:umlPackage>
+  <umlMetaModel.ecore:umlPackage name="junit"/>
+</xmi:XMI>

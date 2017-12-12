@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi id="M1-M2-M3">
+  <Class id="M11-M21" type="Class">
+    <ClassName id="M12" type="String" value="University" />
+    <ClassName id="M22" type="String" value="School" />
+    <ClassAttribute id="M13-M23" type="Attribute">
+      <AttributeName id="M14-M24" type="String" value="name" />
+    </ClassAttribute>
+    <ClassAttribute id="M15-M25" type="Attribute">
+      <AttributeName id="M16-M26" type="String" value="address" />
+    </ClassAttribute>
+  </Class>
+  <Class id="M27-M31" type="Class">
+    <ClassName id="M28-M32" type="String" value="Student" />
+    <ClassAttribute id="M29-M33" type="Attribute">
+      <AttributeName id="M210-M34" type="String" value="name" />
+    </ClassAttribute>
+    <ClassAttribute id="M211-M37" type="Attribute">
+      <AttributeName id="M212-M38" type="String" value="email" />
+    </ClassAttribute>
+    <ClassAttribute id="M35" type="Attribute">
+      <AttributeName id="M36" type="String" value="surname" />
+    </ClassAttribute>
+  </Class>
+</xmi>
